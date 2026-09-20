@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RC World Telugu | Off-Road RC Cars</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">RC <span>WORLD</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">RC Cars</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-buttons">
+        <button class="search-btn" onclick="openSearch()" aria-label="Search">🔍</button>
+        <button class="cart-btn" onclick="openCart()" aria-label="Open cart">
+            🛒
+            <span id="cart-count">0</span>
+        </button>
+    </div>
+</header>
+
+<div class="search-box" id="searchBox">
+    <input type="text" id="searchInput" placeholder="Search RC cars..." onkeyup="searchProducts()">
+    <button onclick="closeSearch()">✕</button>
+</div>
+
+<section class="hero" id="home">
+    <video class="hero-video" id="heroVideo" autoplay muted loop playsinline poster="images/hero-poster.svg">
+        <source id="heroVideoSource" src="https://videos.pexels.com/video-files/855493/855493-hd_1920_1080_25fps.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <p class="small-title">RC WORLD TELUGU</p>
+
+        <h1>BUILD FOR<br><span>EVERYTERRAIN</span></h1>
+
+        <p class="hero-description">
+            Conquer mud. Climb rocks. Explore everywhere.
+            Discover high-performance RC vehicles built for extreme terrain.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#products" class="btn primary">SHOP RC CARS</a>
+            <a href="#video" class="btn secondary">WATCH IN ACTION</a>
+        </div>
+
+        <div class="scroll-cue" aria-label="Scroll down"><span></span></div>
+    </div>
+</section>
+
+<section class="terrain">
+    <div class="section-title">
+        <p>CHOOSE YOUR TERRAIN</p>
+        <h2>READY FOR ANY <span>ADVENTURE</span></h2>
+    </div>
+
+    <div class="terrain-grid">
+        <div class="terrain-card rocks" data-category="rocks">
+            <div>
+                <h3>ROCKS</h3>
+                <p>Extreme rock crawling</p>
+            </div>
+        </div>
+
+        <div class="terrain-card mud" data-category="mud">
+            <div>
+                <h3>MUD</h3>
+                <p>Built for dirty adventures</p>
+            </div>
+        </div>
+
+        <div class="terrain-card desert" data-category="desert">
+            <div>
+                <h3>DESERT</h3>
+                <p>Speed across the sand</p>
+            </div>
+        </div>
+
+        <div class="terrain-card forest" data-category="forest">
+            <div>
+                <h3>FOREST</h3>
+                <p>Explore every trail</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="products" id="products">
+    <div class="section-title">
+        <p>OUR COLLECTION</p>
+        <h2>OFF-ROAD <span>MONSTERS</span></h2>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+        <div class="product-card" data-name="X4 Rock Crawler" data-category="rocks" data-keywords="rock crawler rocks offroad 4wd">
+            <div class="product-image">
+                <img src="images/car1.svg" alt="X4 Rock Crawler">
+                <button class="wishlist" onclick="toggleWishlist(this)">♡</button>
+                <span class="badge">BEST SELLER</span>
+            </div>
+            <div class="product-info">
+                <p>1:10 SCALE • 4WD</p>
+                <h3>X4 ROCK CRAWLER</h3>
+                <div class="specs">
+                    <span>⚡ 35 KM/H</span>
+                    <span>🔋 2000mAh</span>
+                </div>
+                <div class="product-bottom">
+                    <strong>₹9,999</strong>
+                    <button onclick="addToCart('X4 Rock Crawler', 9999)">ADD +</button>
+                </div>
+                <button class="details-btn" onclick="showProduct('X4 Rock Crawler', '₹9,999', '35 KM/H • 2000mAh • 4WD', 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80')">VIEW VEHICLE</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-name="Mud Monster" data-category="mud" data-keywords="mud monster offroad crawler 4wd">
+            <div class="product-image">
+                <img src="images/car2.svg" alt="Mud Monster">
+                <button class="wishlist" onclick="toggleWishlist(this)">♡</button>
+                <span class="badge orange">NEW</span>
+            </div>
+            <div class="product-info">
+                <p>1:10 SCALE • 4WD</p>
+                <h3>MUD MONSTER</h3>
+                <div class="specs">
+                    <span>⚡ 42 KM/H</span>
+                    <span>🔋 2200mAh</span>
+                </div>
+                <div class="product-bottom">
+                    <strong>₹12,499</strong>
+                    <button onclick="addToCart('Mud Monster', 12499)">ADD +</button>
+                </div>
+                <button class="details-btn" onclick="showProduct('Mud Monster', '₹12,499', '42 KM/H • 2200mAh • 4WD', 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80')">VIEW VEHICLE</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-name="Desert Runner" data-category="desert" data-keywords="desert runner speed sand offroad">
+            <div class="product-image">
+                <img src="images/car3.svg" alt="Desert Runner">
+                <button class="wishlist" onclick="toggleWishlist(this)">♡</button>
+                <span class="badge">TOP SPEED</span>
+            </div>
+            <div class="product-info">
+                <p>1:10 SCALE • 4WD</p>
+                <h3>DESERT RUNNER</h3>
+                <div class="specs">
+                    <span>⚡ 60 KM/H</span>
+                    <span>🔋 3000mAh</span>
+                </div>
+                <div class="product-bottom">
+                    <strong>₹15,999</strong>
+                    <button onclick="addToCart('Desert Runner', 15999)">ADD +</button>
+                </div>
+                <button class="details-btn" onclick="showProduct('Desert Runner', '₹15,999', '60 KM/H • 3000mAh • 4WD', 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=900&q=80')">VIEW VEHICLE</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-name="Forest Scout" data-category="forest" data-keywords="forest scout trail 4wd offroad">
+            <div class="product-image">
+                <img src="images/car1.svg" alt="Forest Scout">
+                <button class="wishlist" onclick="toggleWishlist(this)">♡</button>
+                <span class="badge orange">LIMITED</span>
+            </div>
+            <div class="product-info">
+                <p>1:10 SCALE • 4WD</p>
+                <h3>FOREST SCOUT</h3>
+                <div class="specs">
+                    <span>⚡ 38 KM/H</span>
+                    <span>🔋 2100mAh</span>
+                </div>
+                <div class="product-bottom">
+                    <strong>₹11,299</strong>
+                    <button onclick="addToCart('Forest Scout', 11299)">ADD +</button>
+                </div>
+                <button class="details-btn" onclick="showProduct('Forest Scout', '₹11,299', '38 KM/H • 2100mAh • 4WD', 'https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=900&q=80')">VIEW VEHICLE</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-name="Summit X" data-category="rocks" data-keywords="summit x rock crawler 4wd climbing">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=900&q=80" alt="Summit X">
+                <button class="wishlist" onclick="toggleWishlist(this)">♡</button>
+                <span class="badge">HOT</span>
+            </div>
+            <div class="product-info">
+                <p>1:10 SCALE • 4WD</p>
+                <h3>SUMMIT X</h3>
+                <div class="specs">
+                    <span>⚡ 40 KM/H</span>
+                    <span>🔋 2300mAh</span>
+                </div>
+                <div class="product-bottom">
+                    <strong>₹13,499</strong>
+                    <button onclick="addToCart('Summit X', 13499)">ADD +</button>
+                </div>
+                <button class="details-btn" onclick="showProduct('Summit X', '₹13,499', '40 KM/H • 2300mAh • 4WD', 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=900&q=80')">VIEW VEHICLE</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-name="Night Drift" data-category="desert" data-keywords="night drift desert speed rc">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80" alt="Night Drift">
+                <button class="wishlist" onclick="toggleWishlist(this)">♡</button>
+                <span class="badge orange">ELITE</span>
+            </div>
+            <div class="product-info">
+                <p>1:10 SCALE • 4WD</p>
+                <h3>NIGHT DRIFT</h3>
+                <div class="specs">
+                    <span>⚡ 58 KM/H</span>
+                    <span>🔋 3200mAh</span>
+                </div>
+                <div class="product-bottom">
+                    <strong>₹17,499</strong>
+                    <button onclick="addToCart('Night Drift', 17499)">ADD +</button>
+                </div>
+                <button class="details-btn" onclick="showProduct('Night Drift', '₹17,499', '58 KM/H • 3200mAh • 4WD', 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80')">VIEW VEHICLE</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features" id="about">
+    <div class="section-title">
+        <p>WHY CHOOSE US</p>
+        <h2>CRAFTED FOR <span>REAL ADVENTURE</span></h2>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature">
+            <div>⚡</div>
+            <h3>High Torque</h3>
+            <p>Powerful motors tuned for maximum grip and control on rough trails.</p>
+        </div>
+
+        <div class="feature">
+            <div>🛠️</div>
+            <h3>Durable Build</h3>
+            <p>Reinforced chassis, impact-resistant parts, and all-weather performance.</p>
+        </div>
+
+        <div class="feature">
+            <div>🔋</div>
+            <h3>Long Battery</h3>
+            <p>Extended runtime so your RC runs longer through every terrain challenge.</p>
+        </div>
+
+        <div class="feature">
+            <div>🌍</div>
+            <h3>Support</h3>
+            <p>Fast service, genuine upgrades, and expert support for your setup.</p>
+        </div>
+    </div>
+</section>
+
+<section class="action-video" id="video">
+    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80">
+        <source src="https://videos.pexels.com/video-files/855493/855493-hd_1920_1080_25fps.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+    <div class="video-text">
+        <p>RC WORLD TELUGU</p>
+        <h2>SEE IT IN ACTION</h2>
+        <button onclick="playVideo()">PLAY VIDEO</button>
+    </div>
+</section>
+
+<section class="admin-panel hidden" id="admin">
+    <div class="section-title">
+        <p>ADMIN PANEL</p>
+        <h2>MANAGE <span>INVENTORY</span></h2>
+    </div>
+
+    <div class="admin-access" id="adminAccess">
+        <form id="adminLoginForm" class="admin-login-form">
+            <h3>Admin Login</h3>
+            <label>
+                Enter password
+                <div class="password-field">
+                    <input id="adminPassword" type="password" placeholder="Password">
+                    <button type="button" class="toggle-password" data-target="adminPassword">Show</button>
+                </div>
+            </label>
+            <button type="submit" class="checkout">LOGIN</button>
+        </form>
+    </div>
+
+    <div class="admin-password-form">
+        <h3>Change Admin Password</h3>
+        <form id="adminChangePasswordForm">
+            <label>
+                Current password
+                <div class="password-field">
+                    <input type="password" name="currentPassword" placeholder="Current password">
+                    <button type="button" class="toggle-password" data-target="adminChangePasswordForm-currentPassword">Show</button>
+                </div>
+            </label>
+            <label>
+                New password
+                <div class="password-field">
+                    <input type="password" name="newPassword" placeholder="New password">
+                    <button type="button" class="toggle-password" data-target="adminChangePasswordForm-newPassword">Show</button>
+                </div>
+            </label>
+            <label>
+                Confirm password
+                <div class="password-field">
+                    <input type="password" name="confirmPassword" placeholder="Confirm new password">
+                    <button type="button" class="toggle-password" data-target="adminChangePasswordForm-confirmPassword">Show</button>
+                </div>
+            </label>
+            <button type="submit" class="checkout">UPDATE PASSWORD</button>
+        </form>
+        <div id="adminPasswordHint" class="admin-hint">Current password: rcworld123</div>
+    </div>
+
+    <div id="adminContent" class="admin-content hidden">
+        <div class="admin-toolbar">
+            <span>Inventory Controls</span>
+            <button id="adminLogoutBtn" class="checkout">LOGOUT</button>
+        </div>
+
+        <form id="categoryNamesForm" class="admin-form category-names-form">
+            <h3>Category Names</h3>
+            <div class="order-grid">
+                <label>
+                    Rocks name
+                    <input type="text" name="rocks" value="Rocks" required>
+                </label>
+                <label>
+                    Mud name
+                    <input type="text" name="mud" value="Mud" required>
+                </label>
+            </div>
+            <div class="order-grid">
+                <label>
+                    Desert name
+                    <input type="text" name="desert" value="Desert" required>
+                </label>
+                <label>
+                    Forest name
+                    <input type="text" name="forest" value="Forest" required>
+                </label>
+            </div>
+            <button type="submit" class="checkout">SAVE CATEGORY NAMES</button>
+        </form>
+
+        <form id="heroVideoForm" class="admin-form hero-video-form">
+            <h3>Starting Background Video</h3>
+            <label>
+                Video URL (.mp4)
+                <input type="url" name="videoUrl" placeholder="https://example.com/rc-car-video.mp4" required>
+            </label>
+            <label>
+                Poster image URL (optional)
+                <input type="url" name="posterUrl" placeholder="https://example.com/preview.jpg">
+            </label>
+            <button type="submit" class="checkout">SAVE BACKGROUND VIDEO</button>
+        </form>
+
+        <div class="admin-grid">
+            <div class="admin-card">
+                <h3>Products</h3>
+                <form class="admin-form" data-group="products" id="adminProductForm">
+                    <label>
+                        Name
+                        <input type="text" id="productName" name="name" placeholder="Product name">
+                    </label>
+                    <label>
+                        Terrain category
+                        <select id="productCategory" name="category">
+                            <option value="rocks">Rocks</option>
+                            <option value="mud">Mud</option>
+                            <option value="desert">Desert</option>
+                            <option value="forest">Forest</option>
+                        </select>
+                    </label>
+                    <label>
+                        Price
+                        <input type="number" id="productPrice" name="price" placeholder="Price">
+                    </label>
+                    <label>
+                        Specs
+                        <input type="text" id="productSpecs" name="specs" placeholder="35 KM/H • 2000mAh • 4WD">
+                    </label>
+                    <label>
+                        Image URL
+                        <input type="url" id="productImage" name="image" placeholder="Image URL">
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="inStock" checked>
+                        Available in stock
+                    </label>
+                    <button type="submit" class="checkout">ADD PRODUCT</button>
+                </form>
+                <div id="productsAdminList" class="admin-item-list"></div>
+            </div>
+
+            <div class="admin-card">
+                <h3>Accessories</h3>
+                <form class="admin-form" data-group="accessories">
+                    <label>
+                        Name
+                        <input type="text" name="name" placeholder="Accessory name">
+                    </label>
+                    <label>
+                        Price
+                        <input type="number" name="price" placeholder="Price">
+                    </label>
+                    <button type="submit" class="checkout">ADD ACCESSORY</button>
+                </form>
+                <div id="accessoriesAdminList" class="admin-item-list"></div>
+            </div>
+
+            <div class="admin-card">
+                <h3>Services</h3>
+                <form class="admin-form" data-group="services">
+                    <label>
+                        Name
+                        <input type="text" name="name" placeholder="Service name">
+                    </label>
+                    <label>
+                        Price
+                        <input type="number" name="price" placeholder="Price">
+                    </label>
+                    <button type="submit" class="checkout">ADD SERVICE</button>
+                </form>
+                <div id="servicesAdminList" class="admin-item-list"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="catalog-section">
+    <div class="section-title">
+        <p>MORE OPTIONS</p>
+        <h2>ACCESSORIES & <span>SERVICES</span></h2>
+    </div>
+
+    <div class="catalog-grid" id="accessoriesGrid">
+        <div class="catalog-card">
+            <h3>Extra Battery</h3>
+            <p>Premium backup battery to keep your vehicle running longer on long off-road sessions.</p>
+            <strong>₹2,500</strong>
+        </div>
+
+        <div class="catalog-card">
+            <h3>Upgrade Kit</h3>
+            <p>Performance upgrade pack with stronger suspension, tires, and drivetrain support.</p>
+            <strong>₹3,200</strong>
+        </div>
+
+        <div class="catalog-card">
+            <h3>Wheel Pack</h3>
+            <p>Reinforced wheel set for mud, rock crawling, and rough terrain durability.</p>
+            <strong>₹2,900</strong>
+        </div>
+    </div>
+</section>
+
+<section class="services-section">
+    <div class="section-title">
+        <p>KEEP IT RUNNING</p>
+        <h2>PROFESSIONAL <span>CARE</span></h2>
+    </div>
+
+    <div class="catalog-grid" id="servicesGrid">
+        <div class="catalog-card">
+            <h3>Annual Service</h3>
+            <p>Complete maintenance and performance check to keep the RC in peak condition.</p>
+            <strong>₹4,999</strong>
+        </div>
+
+        <div class="catalog-card">
+            <h3>Wheel Tune-Up</h3>
+            <p>Ball joint alignment, tire balancing, and setup tuning for smoother control.</p>
+            <strong>₹1,999</strong>
+        </div>
+
+        <div class="catalog-card">
+            <h3>Repair Slot</h3>
+            <p>Priority repair booking for damaged chassis, motors, electronics, and suspension issues.</p>
+            <strong>₹1,499</strong>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="video-text">
+        <p>READY TO RIDE</p>
+        <h2>BUILD YOUR <span>LEGEND</span></h2>
+        <a href="#products" class="btn primary">EXPLORE MODELS</a>
+    </div>
+</section>
+
+<footer id="contact">
+    <div class="footer-logo">RC <span>WORLD</span></div>
+    <p>Built for mud, mountains, dunes, and everything in between.</p>
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#products">Cars</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <button type="button" class="admin-trigger" id="adminTrigger">RC WORLD TELUGU ADMIN</button>
+    <p>© 2026 RC World Telugu</p>
+</footer>
+
+<aside class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button onclick="closeCart()">✕</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="cart-total">
+        <span>Total</span>
+        <strong id="cartTotal">₹0</strong>
+    </div>
+    <button class="checkout" onclick="checkout()">CHECKOUT</button>
+</aside>
+
+<div class="modal" id="productModal">
+    <div class="modal-content">
+        <button class="close" onclick="closeProduct()">✕</button>
+        <img id="modalImage" src="" alt="Vehicle preview">
+        <div class="modal-info">
+            <p>RC WORLD TELUGU</p>
+            <h2 id="modalName">Vehicle Name</h2>
+            <h3 id="modalPrice">₹0</h3>
+            <p id="modalSpecs">Performance details</p>
+            <div class="product-bottom">
+                <button onclick="addModalProduct()">ADD TO CART</button>
+                <button onclick="buyNowFromModal()">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="orderModal">
+    <div class="modal-content order-modal-content">
+        <button class="close" onclick="closeOrderModal()">✕</button>
+        <div class="order-form-wrap">
+            <p>ORDER FORM</p>
+            <h2>PLACE YOUR ORDER</h2>
+            <form id="orderForm">
+                <label>
+                    Full name
+                    <input type="text" name="customerName" placeholder="Your name">
+                </label>
+
+                <div class="order-grid">
+                    <label>
+                        Phone
+                        <input type="tel" name="phone" placeholder="Phone number">
+                    </label>
+                    <label>
+                        State
+                        <input type="text" name="state" placeholder="State">
+                    </label>
+                </div>
+
+                <label>
+                    Address
+                    <textarea name="address" rows="3" placeholder="Street / house address"></textarea>
+                </label>
+
+                <div class="order-grid">
+                    <label>
+                        District
+                        <input type="text" name="district" placeholder="District">
+                    </label>
+                    <label>
+                        Village / Area
+                        <input type="text" name="village" placeholder="Village / area">
+                    </label>
+                </div>
+
+                <div class="order-grid">
+                    <label>
+                        PIN code
+                        <input type="text" name="pincode" placeholder="PIN code">
+                    </label>
+                    <label>
+                        &nbsp;
+                        <button type="submit" class="checkout">SEND ON WHATSAPP</button>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
